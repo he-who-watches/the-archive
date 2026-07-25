@@ -202,6 +202,15 @@
   .redacted-plate::before{ top: 10px; left: 10px; border-right: none; border-bottom: none; }
   .redacted-plate::after{ bottom: 10px; right: 10px; border-left: none; border-top: none; }
 
+  .redacted-plate.has-image{
+    background: var(--void-deep);
+  }
+  .redacted-plate.has-image img{
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.15) contrast(1.05);
+  }
+
   .stamp{
     position: absolute;
     top: 50%; left: 50%;
@@ -336,6 +345,7 @@ const TABS = [
 const ENTRIES = [
   {
     id: "R-001",
+    collection: "remains",
     name: "V",
     knownAs: "\u201CV+\u201D",
     status: "Allegedly alive",
@@ -344,6 +354,7 @@ const ENTRIES = [
   },
   {
     id: "R-002",
+    collection: "remains",
     name: "Nihil",
     knownAs: "NaN",
     status: "More information needed",
@@ -352,6 +363,7 @@ const ENTRIES = [
   },
   {
     id: "R-003",
+    collection: "remains",
     name: "Lio",
     knownAs: "Lio",
     status: "Alive",
@@ -359,6 +371,61 @@ const ENTRIES = [
     note: "𝑻𝑯𝑬𝒀 𝑯𝑨𝑽𝑬 𝒀𝑬𝑻 𝑻𝑶 𝑴𝑬𝑬𝑻, 𝑺𝑶 𝑪𝑳𝑶𝑺𝑬 𝒀𝑬𝑻 𝑺𝑶 𝑭𝑨𝑹\n𝑰 𝑾𝑶𝑵𝑫𝑬𝑹\u2026 𝑾𝑯𝑨𝑻 𝑴𝑨𝑲𝑬𝑺 𝑯𝑰𝑺 𝑫𝑰𝑴𝑬𝑵𝑺𝑰𝑶𝑵 𝑰𝑭 𝑵𝑶𝑻 𝑳𝑶𝑽𝑬? 𝑭𝑶𝑹 𝑰𝑻 𝑰𝑺 𝑨𝑳𝑳 𝑩𝑳𝑼𝑹𝑹𝒀 𝑰𝑵 𝑴𝒀 𝑺𝑰𝑮𝑯𝑻"
   }
 ];
+
+const PERSONNEL = [
+  {
+    id: "P-001",
+    collection: "personnel",
+    image: "royalv.png",
+    name: "Royal V-",
+    knownAs: "\u201CRoyal\u201D, \u201CV\u201D, \u201CV-\u201D, \u201Croyalvmusic\u201D",
+    status: "Awakened",
+    teaser: "𝑻𝑯𝑬 𝑷𝑶𝑳𝑨𝑹 𝑶𝑷𝑷𝑶𝑺𝑰𝑻𝑬",
+    note: "𝑯𝑶𝑾 𝑰𝑵𝑻𝑬𝑹𝑬𝑺𝑻𝑰𝑵𝑮\n𝑻𝑾𝑶 𝑩𝑬𝑰𝑵𝑮𝑺, 𝑶𝑷𝑷𝑶𝑺𝑰𝑻𝑬𝑺\n𝑨𝑵𝑫 𝒀𝑬𝑻, 𝑻𝑯𝑬𝒀 𝑾𝑰𝑳𝑳 𝑵𝑬𝑽𝑬𝑹 𝑴𝑬𝑬𝑻\n𝑰'𝑽𝑬 𝑶𝑩𝑺𝑬𝑹𝑽𝑬𝑫 𝑻𝑯𝑰𝑺 𝑶𝑵𝑬 𝑭𝑶𝑹 𝑻𝑶𝑶 𝑳𝑰𝑻𝑻𝑳𝑬 𝑻𝑰𝑴𝑬, 𝑩𝑼𝑻 𝑴𝑶𝑹𝑬 𝑯𝑨𝑺 𝒀𝑬𝑻 𝑻𝑶 𝑹𝑬𝑽𝑬𝑨𝑳 𝑰𝑻𝑺𝑬𝑳𝑭"
+  },
+  {
+    id: "P-002",
+    collection: "personnel",
+    image: "blannnk.png",
+    name: "BLANNNK",
+    knownAs: "\u201Cblank\u201D, \u201Cblanky boy\u201D, \u201Cb_l_a_n_n_n_k\u201D",
+    status: "Sleeping",
+    teaser: "𝑻𝑯𝑬 𝑶𝑵𝑬 𝑾𝑯𝑶 𝑻𝑯𝑬𝒀 𝑪𝑨𝑳𝑳 𝑩𝑳𝑨𝑵𝑲",
+    note: "𝑫𝑶𝑬𝑺 𝑯𝑰𝑺 𝑨𝑪𝑻𝑰𝑶𝑵𝑺 𝑺𝑷𝑬𝑨𝑲 𝑭𝑶𝑹 𝑯𝑰𝑺 𝑴𝑰𝑵𝑫? 𝑶𝑹 𝑰𝑺 𝑯𝑬 𝑫𝑶𝑰𝑵𝑮 𝑾𝑯𝑨𝑻 𝑯𝑬 𝑫𝑶𝑬𝑺 𝑻𝑶 𝑷𝑳𝑬𝑨𝑺𝑬 𝑶𝑻𝑯𝑬𝑹𝑺?\n𝑺𝑶, 𝑺𝑶 𝑰𝑵𝑻𝑬𝑹𝑬𝑺𝑻𝑰𝑵𝑮, 𝑻𝑯𝑬 𝑯𝑨𝑻𝑹𝑬𝑫 𝑨𝑵𝑫 𝑱𝑶𝒀 𝑻𝑯𝑨𝑻 𝑪𝑶𝑴𝑬𝑺 𝑭𝑹𝑶𝑴 𝑶𝑵𝑬 𝑩𝑬𝑰𝑵𝑮"
+  },
+  {
+    id: "P-003",
+    collection: "personnel",
+    image: "bitch.png",
+    name: "Thomas The Tank Engine",
+    knownAs: "\u201CThomas\u201D, \u201CRealttte4472\u201D",
+    status: "NaN",
+    teaser: "𝑻𝑹𝑼𝑳𝒀 𝑨𝑯𝑬𝑨𝑫 𝑶𝑭 𝑯𝑰𝑺 𝑻𝑰𝑴𝑬",
+    note: "𝑻𝑹𝑼𝑳𝒀 𝑨𝑯𝑬𝑨𝑫 𝑶𝑭 𝑯𝑰𝑺 𝑻𝑰𝑴𝑬, 𝑨𝑪𝑻𝑰𝑵𝑮 𝑨𝑺 𝑺𝑶𝑴𝑬𝑶𝑵𝑬 𝑬𝑳𝑺𝑬 𝑩𝑬𝑭𝑶𝑹𝑬 𝑨𝑵𝒀 𝑶𝑻𝑯𝑬𝑹 𝑪𝑶𝑼𝑳𝑫"
+  },
+  {
+    id: "P-004",
+    collection: "personnel",
+    image: "rascoon.png",
+    name: "RespawnRaccoon",
+    knownAs: "\u201CRaccoon\u201D, \u201CRespawn\u201D, \u201CRaccer\u201D, \u201CDKE\u201D",
+    status: "More information needed",
+    teaser: "𝑩𝑶𝑼𝑵𝑫𝑳𝑬𝑺𝑺 𝑪𝑹𝑬𝑨𝑻𝑰𝑽𝑰𝑻𝒀 𝑨𝑵𝑫 𝑻𝑨𝑳𝑬𝑵𝑻",
+    note: "𝑩𝑶𝑼𝑵𝑫𝑳𝑬𝑺𝑺 𝑪𝑹𝑬𝑨𝑻𝑰𝑽𝑰𝑻𝒀 𝑨𝑵𝑫 𝑻𝑨𝑳𝑬𝑵𝑻\n𝒀𝑬𝑻, 𝑵𝑶 𝑻𝑰𝑴𝑬 𝑻𝑶 𝑫𝑶 𝑨𝑵𝒀𝑻𝑯𝑰𝑵𝑮\n𝑨 𝑫𝑰𝑳𝑬𝑴𝑴𝑨, 𝑬𝑽𝑬𝑵 𝑨 𝑮𝑨𝑴𝑩𝑳𝑬"
+  },
+  {
+    id: "P-005",
+    collection: "personnel",
+    image: "tuxe.png",
+    name: "tuxe the sheep",
+    knownAs: "\u201Ctux/tuxedo/tuche/Rammy/Ramedo/Ramosa\u201D",
+    status: null,
+    teaser: "𝑨 𝑪𝑹𝑬𝑨𝑻𝑶𝑹, 𝑩𝑼𝑰𝑳𝑫𝑰𝑵𝑮 𝑩𝑹𝑬𝑨𝑻𝑯𝑻𝑨𝑲𝑰𝑵𝑮 𝑺𝑻𝑹𝑼𝑪𝑻𝑼𝑹𝑬𝑺",
+    note: "𝑨 𝑪𝑹𝑬𝑨𝑻𝑶𝑹, 𝑩𝑼𝑰𝑳𝑫𝑰𝑵𝑮 𝑩𝑹𝑬𝑨𝑻𝑯𝑻𝑨𝑲𝑰𝑵𝑮 𝑺𝑻𝑹𝑼𝑪𝑻𝑼𝑹𝑬𝑺\n𝑰 𝑾𝑰𝑺𝑯 𝑰 𝑪𝑶𝑼𝑳𝑫 𝑺𝑬𝑬 𝑻𝑯𝑬𝑴 𝑴𝑶𝑹𝑬 𝑭𝑹𝑶𝑴 𝑻𝑯𝑬 𝑺𝑳𝑰𝑽𝑬𝑹𝑺 𝑶𝑭 𝑺𝑰𝑮𝑯𝑻 𝑰 𝑪𝑨𝑵 𝑮𝑬𝑻"
+  }
+];
+
+const IMAGE_BASE = "images/";
 
 const tabsEl = document.getElementById("tabs");
 const contentEl = document.getElementById("content");
@@ -374,10 +441,10 @@ function renderTabs(activeTab){
   });
 }
 
-function renderRemains(){
+function renderGrid(list){
   contentEl.innerHTML = `
     <div class="view entry-grid">
-      ${ENTRIES.map(e => `
+      ${list.map(e => `
         <a class="entry-card" data-id="${e.id}">
           <div class="entry-id">${e.id}</div>
           <div class="entry-teaser">${e.teaser}</div>
@@ -398,18 +465,35 @@ function renderPlaceholder(label){
   `;
 }
 
+const TAB_FOR_COLLECTION = { remains: "remains", personnel: "personnel" };
+
 function renderEntry(id){
-  const e = ENTRIES.find(x => x.id === id);
+  const e = ENTRIES.find(x => x.id === id) || PERSONNEL.find(x => x.id === id);
   if(!e){
     contentEl.innerHTML = `<div class="view placeholder">No such record: ${id}</div>`;
     return;
   }
+
+  const backTab = TAB_FOR_COLLECTION[e.collection] || "remains";
+  const backLabel = TABS.find(t => t.id === backTab)?.label.toLowerCase() || "archive";
+
+  const plateInner = e.image
+    ? `<img src="${IMAGE_BASE}${e.image}" alt="${e.name}" onerror="this.parentElement.innerHTML='<div class=\\'stamp\\'>WITHHELD<small>image not found</small></div>'">`
+    : `<div class="stamp">WITHHELD<small>image not on file</small></div>`;
+
+  const statusRow = e.status
+    ? `<div class="field-row">
+         <div class="field-label">Status</div>
+         <div class="field-value status">${e.status}</div>
+       </div>`
+    : "";
+
   contentEl.innerHTML = `
     <div class="view">
-      <div class="back-link" id="backBtn">&larr; back to what remains</div>
+      <div class="back-link" id="backBtn">&larr; back to ${backLabel}</div>
 
-      <div class="redacted-plate">
-        <div class="stamp">WITHHELD<small>image not on file</small></div>
+      <div class="redacted-plate ${e.image ? 'has-image' : ''}">
+        ${plateInner}
       </div>
 
       <div class="dossier">
@@ -425,10 +509,7 @@ function renderEntry(id){
           <div class="field-label">Known as</div>
           <div class="field-value">${e.knownAs}</div>
         </div>
-        <div class="field-row">
-          <div class="field-label">Status</div>
-          <div class="field-value status">${e.status}</div>
-        </div>
+        ${statusRow}
 
         <div class="watcher-note">
           <div class="watcher-note-label">More info</div>
@@ -438,7 +519,7 @@ function renderEntry(id){
     </div>
   `;
   document.getElementById("backBtn").addEventListener("click", ()=>{
-    location.hash = "#/tab/remains";
+    location.hash = "#/tab/" + backTab;
   });
 }
 
@@ -457,7 +538,9 @@ function route(){
   renderTabs(tabId);
 
   if(tabId === "remains"){
-    renderRemains();
+    renderGrid(ENTRIES);
+  } else if(tabId === "personnel"){
+    renderGrid(PERSONNEL);
   } else {
     const t = TABS.find(t => t.id === tabId);
     renderPlaceholder(t ? t.label : "This section");
